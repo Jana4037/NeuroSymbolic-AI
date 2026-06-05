@@ -2,17 +2,11 @@
 
 **A Comparative Study of DeepProbLog and NeurASP**
 
-> Master's thesis project — Applied Informatics: Artificial Intelligence and Data Science  
-> Vrije Universiteit Brussel · 2025–2026 · Promotor: Prof. Joost Vennekens
-
----
-
 ## Overview
 
 This project implements and compares two neurosymbolic AI frameworks — **DeepProbLog** and **NeurASP** — for interpreting Rummikub board game states from real-world photographs. Both systems combine a neural vision backbone (SSD + ResNet-18) with symbolic rule engines to detect and validate tile combinations without any hand-labeled symbolic input.
 
 The system takes a photograph of a Rummikub board and outputs the valid runs and sets detected, along with per-image inference statistics.
-
 ---
 
 ## What It Does
