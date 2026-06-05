@@ -20,23 +20,6 @@ Given a JPEG or PNG photograph of a Rummikub board:
    - **DeepProbLog** uses Weighted Model Counting (WMC) via ProbLog to assign continuous probabilities to each triplet.
    - **NeurASP** uses Clingo-based Answer Set Programming to find stable models, producing binary valid/invalid output.
 
----
-
-## Key Results (285 Images)
-
-| Metric | DeepProbLog | NeurASP |
-|---|---|---|
-| Valid runs detected | 430 | 431 |
-| Valid sets detected | 273 | 274 |
-| **Total valid triplets** | **703** | **705** |
-| Total inference time | 3006.3 s (≈50 min) | 407.8 s (≈7 min) |
-| Speed ratio | — | **~7.4× faster** |
-| Output type | Continuous probability [0, 1] | Binary (valid / invalid) |
-
-Both frameworks converge on nearly identical detection counts despite fundamentally different inference architectures.
-
----
-
 ## Repository Structure
 
 ```
@@ -61,8 +44,7 @@ Both frameworks converge on nearly identical detection counts despite fundamenta
 └── neurasp_results.json         # Output results — NeurASP
 ```
 
----
-
+----
 ## Architecture
 
 ```
@@ -179,24 +161,6 @@ Rules are encoded in `rummikubexam.pl` for DeepProbLog and as an equivalent dyna
 | End-to-end learning | ✅ Supported | ✅ Supported |
 | Used in this study | Inference only | Inference only |
 
----
-
-## Limitations
-
-- **No ground truth annotations** — precision, recall, and F1 cannot be computed. The study relies on inter-system agreement and aggregate counts.
-- **Inference-only evaluation** — end-to-end joint training of neural and symbolic layers was not performed.
-- **Threshold sensitivity** — DeepProbLog's 0.10 threshold was chosen heuristically and has not been systematically tuned.
-
----
-
-## Future Work
-
-- Expert annotation of valid runs/sets per image to enable precision/recall evaluation.
-- Full end-to-end joint training for both frameworks.
-- Continuous probability output for NeurASP to enable a fair head-to-head comparison.
-- Adding [Scallop](https://arxiv.org/abs/2304.04812) as a third framework for a three-way comparison.
-- Batching triplet queries in DeepProbLog to reduce WMC overhead and close the speed gap with NeurASP.
-- Mobile deployment using NeurASP's speed advantage for a real-time game assistant.
 
 ---
 
@@ -208,7 +172,3 @@ Rules are encoded in `rummikubexam.pl` for DeepProbLog and as an equivalent dyna
 - He et al. (2016). *Deep Residual Learning for Image Recognition.* CVPR 2016.
 - Liu et al. (2015). *SSD: Single Shot MultiBox Detector.* [arXiv:1512.02325](https://arxiv.org/abs/1512.02325)
 - Garcez & Lamb (2023). *Neurosymbolic AI: The 3rd wave.* Artificial Intelligence Review.
-
-## License
-
-This project was developed for academic research purposes. Please refer to the individual framework licenses for DeepProbLog and NeurASP before any other use.
