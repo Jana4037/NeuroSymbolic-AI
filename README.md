@@ -1,4 +1,4 @@
- NeuroSymbolic AI for Rummikub
+# NeuroSymbolic AI for Rummikub
 
 **A Comparative Study of DeepProbLog and NeurASP**
 
@@ -6,7 +6,7 @@
 
 This project implements and compares two neurosymbolic AI frameworks — **DeepProbLog** and **NeurASP** — for interpreting Rummikub board game states from real-world photographs. Both systems are used to identify Rummikub board game-tile combinations to determine whether tile combinations are valid or not. 
 The system takes a photograph of a Rummikub board and outputs the valid runs and sets detected, along with per-image inference statistics.
----
+
 
 ## What It Does
 
@@ -117,11 +117,10 @@ Open and run `compare_neurodeep.ipynb` after both pipelines have completed. This
 - Inference time comparison (per image, distribution, total)
 - DeepProbLog probability distribution histogram
 - Inference time vs. image complexity plots
----
----
+  
 ## Rummikub Rules (Symbolic Layer)
 Rules are encoded in `rummikubexam.pl` for DeepProbLog and as an equivalent dynamic ASP program for NeurASP.
 **Valid run** — three tiles of the same colour with consecutive numbers (e.g. Red 3, Red 4, Red 5).  
 **Valid set** — three tiles with the same number and all different colours (e.g. Red 7, Blue 7, Orange 7).  
 **Joker** — substitutes any single tile; handled by dedicated rule variants in both frameworks.
----
+
