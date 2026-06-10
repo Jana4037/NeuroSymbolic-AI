@@ -43,33 +43,6 @@ Given a JPEG or PNG photograph of a Rummikub board:
 └── neurasp_results.json         # Output results — NeurASP
 ```
 
-----
-## Architecture
-
-```
-Photo
-  │
-  ▼
-SSD300 (tile detection)
-  │  bounding boxes
-  ▼
-ResNet-18 × 2 (colour + number classifiers)
-  │  probability tensors  [T = 2.0 temperature scaling]
-  ▼
-Tile Clustering & Ordering
-  │  consecutive triplets
-  ├──────────────────────────────────┐
-  ▼                                  ▼
-DeepProbLog                        NeurASP
-ExactEngine (WMC)                  Clingo (ASP solver)
-rummikubexam.pl                    Dynamic ASP program
-  │                                  │
-  ▼                                  ▼
-P(valid_run), P(valid_set)         Binary: in stable model?
-```
-
----
-
 ## Setup
 
 ### Requirements
